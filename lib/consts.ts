@@ -1,0 +1,15 @@
+export const CATEGORY_LABELS: Record<string, string> = {
+  actor: 'Cast',
+  actress: 'Cast',
+  director: 'Directors',
+  writer: 'Writers',
+  producer: 'Producers',
+  composer: 'Composers',
+  cinematographer: 'Cinematographers',
+  editor: 'Editors',
+  production_designer: 'Production Designers',
+  sound: 'Sound',
+  vfx: 'VFX',
+  stunts: 'Stunts',
+  misc: 'Other',
+};
