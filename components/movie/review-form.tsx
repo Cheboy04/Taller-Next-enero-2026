@@ -1,6 +1,5 @@
 'use client';
 
-import { addReview } from '@/app/movie/[id]/review-actions';
 import Button from '@/components/global/button';
 import { useState } from 'react';
 
@@ -13,11 +12,6 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({ movieId }) => {
 
   async function handleSubmit(formData: FormData) {
     setIsSubmitting(true);
-    try {
-      await addReview(formData);
-    } finally {
-      setIsSubmitting(false);
-    }
   }
 
   return (
@@ -44,6 +38,22 @@ export const ReviewForm: React.FC<ReviewFormProps> = ({ movieId }) => {
             </option>
           ))}
         </select>
+      </div>
+
+      <div>
+        <label
+          htmlFor="author"
+          className="mb-1 block text-xs font-medium tracking-[0.16em] text-slate-500 uppercase"
+        >
+          Your name (optional)
+        </label>
+        <input
+          id="author"
+          name="author"
+          type="text"
+          className="w-full rounded-md border border-slate-300 bg-white px-2 py-1.5 text-sm text-slate-900 shadow-sm focus:border-slate-500 focus:ring-1 focus:ring-slate-500 focus:outline-none"
+          placeholder="Add your name"
+        />
       </div>
 
       <div>

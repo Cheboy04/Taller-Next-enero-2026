@@ -14,8 +14,8 @@ export async function getReviewsForMovie(movieId: number): Promise<MovieReview[]
   const supabase = await createClient();
 
   const { data, error } = await supabase
-    .from('review')
-    .select('id, movie_id, user_id, comment, rating, created_at, author')
+    .from('movie_reviews')
+    .select('id, movie_id, comment, rating, created_at, author')
     .eq('movie_id', movieId)
     .order('created_at', { ascending: false });
 
@@ -25,7 +25,10 @@ export async function getReviewsForMovie(movieId: number): Promise<MovieReview[]
   }
 
   if (!data) return [];
-  
+
+  // We cast very defensively here because the review table is not typed
+  // in our generated Supabase types.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (data as any[]).map(row => ({
     id: Number(row.id),
     movieId: Number(row.movie_id),

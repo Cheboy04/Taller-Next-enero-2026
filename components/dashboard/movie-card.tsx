@@ -17,7 +17,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({ id, title, poster_url, rel
       <div className="relative w-full overflow-hidden bg-slate-950">
         <div className="aspect-2/3 w-full">
           <Image
-            src={'/poster.jpg'}
+            src={poster_url ?? '/no-image.png'}
             alt={title}
             fill
             sizes="(min-width: 1024px) 220px, (min-width: 768px) 200px, 160px"

@@ -23,7 +23,13 @@ export const PersonCard: React.FC<PersonCardProps> = ({
     >
       <div className="relative h-20 w-20 overflow-hidden rounded-full bg-slate-200 md:h-24 md:w-24">
         {pictureUrl ? (
-          <Image src={pictureUrl} alt={name} fill sizes="40px" className="object-cover" />
+          <Image
+            src={pictureUrl}
+            alt={name}
+            fill
+            sizes="80px"
+            className="object-cover object-top"
+          />
         ) : (
           <span className="flex h-full w-full items-center justify-center text-base font-medium text-slate-500">
             {name.charAt(0)}

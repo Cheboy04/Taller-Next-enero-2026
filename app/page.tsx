@@ -9,7 +9,7 @@ export default async function Home(props: {
       title: 'Zootopia 2',
       release_date: '2025-11-27',
       runtime_minutes: 108,
-      poster_url: 'https://example.com/poster.jpg',
+      poster_url: '/poster.jpg',
     },
   ];
 
