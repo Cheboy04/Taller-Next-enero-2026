@@ -7,7 +7,6 @@ interface ActorsProps {
 
 export const Actors: React.FC<ActorsProps> = async ({ movieId }) => {
   // TODO: Remove this after testing
-  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const actors = await getMovieActors(movieId);
 

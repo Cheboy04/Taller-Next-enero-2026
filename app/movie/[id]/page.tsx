@@ -7,6 +7,9 @@ import { CATEGORY_LABELS } from '@/lib/consts';
 import { MovieCredit } from '@/lib/helpers';
 import { createClient } from '@/lib/supabase/server';
 import { getMovieById, getMovieCredits, getMovieGenres } from '@/services/movies';
+import { Actors, ActorsSkeleton } from '@/components/movie/actors';
+import { Suspense } from 'react';
+
 
 type MoviePageProps = {
   params: Promise<{ id: string }>;
@@ -124,6 +127,9 @@ export default async function MoviePage({ params }: MoviePageProps) {
             </div>
           </div>
         </div>
+        <Suspense fallback={<ActorsSkeleton/>}>
+            <Actors movieId={numericId} />
+        </Suspense>
       </section>
     </main>
   );
